@@ -45,7 +45,26 @@
             margin-top: 10px;
             margin-bottom: 0;
         }
-
+        .menu {
+            position: absolute;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            display: none;
+            top: 255px;
+            right: 77px;
+            background-color: rgba(255, 255, 255, 0.7); 
+            border-radius: 5px;
+            padding: 10px;
+            z-index: 1; 
+            
+        }
+        .menu-item {
+            padding: 1px 15px;
+            margin-right: 6px;
+            border: 1px solid #ccc; 
+            display: block; 
+            margin-bottom: 6px;
+            cursor: pointer;
+        }
     </style>
     <head>
         <img src="images/Простий Мінімалістичний Логотип Пекарні (1).png" alt="Ваше зображення" class="corner-image">
@@ -57,13 +76,54 @@
     
     <a href="home.html"><button>Home</button></a>
     <a href="about.html"><button>About</button></a>
-    <a href="more.html"><button>More</button></a>
+    <button id="moreBtn">More</button>
     
     <div class="text">
         <h1>Рецепти на кожен смак👨‍🍳</h1>
         <br>Ласкаво просимо на сайт з рецептами, де ви знайдете вибір страв на будь-який смак.<br>
         <br>Дивіться наші рецепти, експериментуйте в кухні та насолоджуйтеся новими смаками разом з нами!<br>
     </div>
+    
+    <div class="menu">
+        <div class="menu-item" data-url="https://klopotenko.com/rybne/">Рибні страви</div>
+        <div class="menu-item" data-url="https://klopotenko.com/vipichka/">Випічка</div>
+        <div class="menu-item" data-url="https://klopotenko.com/supi/">Суп</div>
+        <div class="menu-item" data-url="https://klopotenko.com/vegetarianske-menyu/">Вегетаріанські страви</div>
+        <div class="menu-item" data-url="https://klopotenko.com/ru/zakusky/">Закуски</div>
+        <div class="menu-item" data-url="https://klopotenko.com/salati/">Салати</div>
+        <div class="menu-item" data-url="https://klopotenko.com/pisnij-stil/">Пісні страви</div>
+        <div class="menu-item" data-url="https://klopotenko.com/solodki-stravi-ta-deserti/">Десерти</div>
+        <div class="menu-item" data-url="https://klopotenko.com/koktejli-ta-napoyi/">Коктейлі та напої</div>
+        <div class="menu-item" data-url="https://klopotenko.com/diyetichni-stravi/">Дієтичні страви</div>
+        <div class="menu-item" data-url="https://klopotenko.com/salati/">Салати</div>
+        <div class="menu-item" data-url="https://klopotenko.com/salati/">Салати</div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuItems = document.querySelectorAll('.menu-item');
+            
+            menuItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const url = this.dataset.url;
+                    window.open(url, '_blank');
+                });
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const moreBtn = document.getElementById('moreBtn');
+            const menu = document.querySelector('.menu');
+
+            moreBtn.addEventListener('click', function() {
+                if (menu.style.display === 'none') {
+                    menu.style.display = 'block';
+                } else {
+                    menu.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
+
 
